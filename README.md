@@ -2,20 +2,20 @@
 
 ## usersテーブル
 
-| Column            | Type   | Options                   |
-| ----------------- | ------ | ------------------------- |
-| nickname          | string | null: false, unique: true |
-| e-mail            | string | null: false, unique: true |
-| password          | string | null: false               |
-| first_name        | string | null: false               |
-| family_name       | string | null: false               |
-| read_first_name  | string | null: false               |
-| read_family_name | string | null: false               |
-| birth             | date   | null: false               |
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| nickname           | string | null: false, unique: true |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+| first_name         | string | null: false               |
+| family_name        | string | null: false               |
+| read_first_name    | string | null: false               |
+| read_family_name   | string | null: false               |
+| birth              | date   | null: false               |
 
 ### association
 - has_many :items
-- has_many :purchase
+- has_many :purchases
 
 ##  itemsテーブル
 
@@ -26,7 +26,6 @@
 | text              | text      | null: false                    |
 | value             | integer   | null: false                    |
 | category_id       | integer   | null: false                    |
-| brand_id          | integer   | null: false                    |
 | item_condition_id | integer   | null: false                    |
 | days_id           | integer   | null: false                    |
 | postage_id        | integer   | null: false                    |
@@ -46,6 +45,7 @@
 ### association
 - belong_to :user
 - belong_to :item
+- has_one :purchase
 
 ##  shipping addressテーブル
 
