@@ -33,7 +33,7 @@
 
 ### association
 - has_one :purchase
-- belong_to :user
+- belongs_to :user
 
 ##  purchaseテーブル
 
@@ -43,9 +43,9 @@
 | items  | reference | null: false, foreign_key: true |
 
 ### association
-- belong_to :user
-- belong_to :item
-- has_one :purchase
+- belongs_to :user
+- belongs_to :item
+- has_one :shipping address
 
 ##  shipping addressテーブル
 
@@ -60,4 +60,4 @@
 | phone    | string    | null: false                    |
 
 ### association
-- belong_to :purchase
+- belongs_to :purchase
