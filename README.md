@@ -22,7 +22,7 @@
 | Column            | Type      | Options                        |
 | ----------------- | --------- | ------------------------------ |
 | user              | reference | null: false, foreign_key: true |
-| items_name        | string    | null: false                    |
+| name              | string    | null: false                    |
 | text              | text      | null: false                    |
 | value             | integer   | null: false                    |
 | category_id       | integer   | null: false                    |
@@ -35,7 +35,7 @@
 - has_one :purchase
 - belongs_to :user
 
-##  purchaseテーブル
+##  purchasesテーブル
 
 | Column | Type      | Options                        |
 | ------ | --------- | ------------------------------ |
@@ -45,9 +45,9 @@
 ### association
 - belongs_to :user
 - belongs_to :item
-- has_one :shipping address
+- has_one :shipping_address
 
-##  shipping addressテーブル
+##  shipping_addressテーブル
 
 | Column   | Type      | Options                        |
 | -------- | --------- | ------------------------------ |
