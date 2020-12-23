@@ -40,7 +40,7 @@
 | Column | Type      | Options                        |
 | ------ | --------- | ------------------------------ |
 | user   | reference | null: false, foreign_key: true |
-| items  | reference | null: false, foreign_key: true |
+| item   | reference | null: false, foreign_key: true |
 
 ### association
 - belongs_to :user
