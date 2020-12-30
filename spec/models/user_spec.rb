@@ -10,12 +10,6 @@ RSpec.describe User, type: :model do
       it "ニックネームとメールアドレス、パスワードとパスワード（確認用）が存在すれば登録できること" do
         expect(@user).to be_valid
       end
-
-      it "パスワードが6文字以上であれば登録できる" do
-        @user.password = "000aaa"
-        @user.password_confirmation = "000aaa"
-        expect(@user).to be_valid
-      end
     end
 
     context '新規登録がうまくいかないとき' do
@@ -52,14 +46,15 @@ RSpec.describe User, type: :model do
       end
 
       it "パスワードは半角英数字混合でなければ登録できない" do
-        @user.password = "aaaa"
+        @user.password = "aaaaaa"
+        @user.password_confirmation = "bbbbbb"
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
+        expect(@user.errors.full_messages).to include("パスワード半角英数を使用してください")
       end
 
       it "パスワードが5文字以下であれば登録できない" do
-        @user.password = "00000"
-        @user.password_confirmation = "00000"
+        @user.password = "000aa"
+        @user.password_confirmation = "000aa"
         @user.valid?
         expect(@user.errors.full_messages).to include("パスワードは6文字以上で入力してください")
       end
@@ -71,8 +66,8 @@ RSpec.describe User, type: :model do
       end
 
       it "パスワードとパスワード（確認用）、値の一致していなければ登録できない" do
-        @user.password = "00000"
-        @user.password_confirmation = "11111"
+        @user.password = "000bbb"
+        @user.password_confirmation = "111aaa"
         @user.valid?
         expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
       end
