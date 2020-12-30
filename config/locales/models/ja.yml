@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    models: 
+      user: #モデル名
+    attributes: #翻訳したい内容
+      user: #上のモデル名と一致させる
+        name: イベント名
+        place: 開催場所
+        content: イベント内容
+        nickname: ニックネーム
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+        email: メールアドレス
+        birth: 生年月日
+        first_name: 名前
+        family_name: 名字
+        read_first_name: 名前(フリガナ)
+        read_family_name: 名字(フリガナ)
