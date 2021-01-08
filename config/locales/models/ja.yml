@@ -1,7 +1,8 @@
 ja:
   activerecord:
-    models: 
-      user: #モデル名
+    models: #下記にモデル名
+      user: #新規登録、ログイン
+      item: #商品出品
     attributes: #翻訳したい内容
       user: #上のモデル名と一致させる
         name: イベント名
@@ -16,3 +17,14 @@ ja:
         family_name: 名字
         read_first_name: 名前(フリガナ)
         read_family_name: 名字(フリガナ)
+        
+      item: #上のモデル名と一致させる
+        name: 商品名
+        text: 商品の説明
+        value: 販売価格
+        image: 出品画像
+        condition_id: 商品の状態
+        category_id: カテゴリー
+        shipment_day_id: 発送までの日数
+        postage_id: 配送料の負担
+        prefecture_id: 発送元の地域
