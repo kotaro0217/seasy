@@ -70,13 +70,13 @@ RSpec.describe Item, type: :model do
       end
 
       it "販売価格が299以下だと登録できない" do
-        @item.value = "299"
+        @item.value = 299
         @item.valid? 
         expect(@item.errors.full_messages).to include("販売価格は300以上の値にしてください")
       end
 
       it "販売価格が10000000以上だ登録できない" do
-        @item.value = "10000000"
+        @item.value = 10000000
         @item.valid? 
         expect(@item.errors.full_messages).to include("販売価格は9999999以下の値にしてください")
       end
