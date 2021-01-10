@@ -61,6 +61,7 @@ RSpec.describe Item, type: :model do
         @item.valid? 
         expect(@item.errors.full_messages).to include("発送までの日数は空欄以外を選択してください")
       end
+      
 
       it "価格がないと登録できない" do
         @item.value = ""
