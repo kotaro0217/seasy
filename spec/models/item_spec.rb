@@ -25,6 +25,13 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("商品名を入力してください")
       end
 
+      
+      it "商品説明がないと登録できない" do
+        @item.text = ""
+        @item.valid? 
+        expect(@item.errors.full_messages).to include("商品の説明を入力してください")
+      end
+
       it "カテゴリーを選択していないと登録できない" do
         @item.category_id = ""
         @item.valid? 
@@ -55,11 +62,44 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("発送までの日数は空欄以外を選択してください")
       end
 
-      it "価格を入力していないと登録できない" do
+      it "価格がないと登録できない" do
         @item.value = ""
         @item.valid? 
         expect(@item.errors.full_messages).to include("販売価格を入力してください")
       end
+
+      it "販売価格が299以下だと登録できない" do
+        @item.value = "299"
+        @item.valid? 
+        expect(@item.errors.full_messages).to include("販売価格は300以上の値にしてください")
+      end
+
+      it "販売価格が10000000以上だ登録できない" do
+        @item.value = "10000000"
+        @item.valid? 
+        expect(@item.errors.full_messages).to include("販売価格は9999999以下の値にしてください")
+      end
+
+      it "販売価格は全角文字では登録できないこと" do
+        @item.value = "あ"
+        @item.valid? 
+        expect(@item.errors.full_messages).to include("販売価格は数値で入力してください")
+      end
+
+      it "販売価格は半角英数混合では登録できないこと" do
+        @item.value = "1a"
+        @item.valid? 
+        expect(@item.errors.full_messages).to include("販売価格は数値で入力してください")
+      end
+
+      it "販売価格は半角英語だけでは登録できないこと" do
+        @item.value = "a"
+        @item.valid? 
+        expect(@item.errors.full_messages).to include("販売価格は数値で入力してください")
+      end
+      
+
     end
   end
 end
+
