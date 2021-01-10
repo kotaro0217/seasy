@@ -33,31 +33,31 @@ RSpec.describe Item, type: :model do
       end
 
       it "カテゴリーを選択していないと登録できない" do
-        @item.category_id = "1"
+        @item.category_id = 1
         @item.valid? 
         expect(@item.errors.full_messages).to include("カテゴリーは空欄以外を選択してください")
       end
 
       it "商品の状態を選択していないと登録できない" do
-        @item.condition_id = "1"
+        @item.condition_id = 1
         @item.valid? 
         expect(@item.errors.full_messages).to include("商品の状態は空欄以外を選択してください")
       end
 
       it "配送料の負担を選択していないと登録できない" do
-        @item.postage_id = "1"
+        @item.postage_id = 1
         @item.valid? 
         expect(@item.errors.full_messages).to include("配送料の負担は空欄以外を選択してください")
       end
 
       it "発送元の地域を選択していないと登録できない" do
-        @item.prefecture_id = "1"
+        @item.prefecture_id = 1
         @item.valid? 
         expect(@item.errors.full_messages).to include("発送元の地域は空欄以外を選択してください")
       end
 
       it "発送までの日数を選択していないと登録できない" do
-        @item.shipment_day_id = "1"
+        @item.shipment_day_id = 1
         @item.valid? 
         expect(@item.errors.full_messages).to include("発送までの日数は空欄以外を選択してください")
       end
