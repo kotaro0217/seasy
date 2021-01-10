@@ -19,17 +19,17 @@
 
 ##  itemsテーブル
 
-| Column            | Type      | Options                        |
-| ----------------- | --------- | ------------------------------ |
-| user              | reference | null: false, foreign_key: true |
-| name              | string    | null: false                    |
-| text              | text      | null: false                    |
-| value             | integer   | null: false                    |
-| category_id       | integer   | null: false                    |
-| item_condition_id | integer   | null: false                    |
-| days_id           | integer   | null: false                    |
-| postage_id        | integer   | null: false                    |
-| area_id           | integer   | null: false                    |
+| Column          | Type      | Options                        |
+| --------------- | --------- | ------------------------------ |
+| user            | reference | null: false, foreign_key: true |
+| name            | string    | null: false                    |
+| text            | text      | null: false                    |
+| value           | integer   | null: false                    |
+| category_id     | integer   | null: false                    |
+| condition_id    | integer   | null: false                    |
+| shipment_day_id | integer   | null: false                    |
+| postage_id      | integer   | null: false                    |
+| prefecture_id   | integer   | null: false                    |
 
 ### association
 - has_one :purchase

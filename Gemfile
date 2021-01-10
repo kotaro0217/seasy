@@ -65,3 +65,9 @@ gem 'active_hash'
 gem 'devise'
 
 gem 'rails-i18n'
+
+gem 'mini_magick'
+
+gem 'image_processing', '~> 1.2'
+
+gem 'pry-rails'
