@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create] 
 #ログインしていなければ指定ページにとべない
   def index
-    @items = "index"
+    @items = Item.all
   end
 
   def new
