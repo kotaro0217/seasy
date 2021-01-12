@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-
   before_action :configure_permitted_parameters, if: :devise_controller?
 
    private
@@ -8,4 +7,4 @@ class ApplicationController < ActionController::Base
       :sign_up, keys: [:nickname, :email, :password, :first_name, :family_name, :read_first_name, :read_family_name, :birth]
     )
   end
- end
+end
