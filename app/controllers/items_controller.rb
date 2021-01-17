@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :selectitem, only: [:show, :edit, :update ]
+  before_action :selectitem, only: [:show, :edit, :update]
 
   # ログインしていなければ指定ページにとべない
   def index
@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
   end
 
   # def destroy
-    # @item = Item.find(params[:id])
+  # @item = Item.find(params[:id])
   # end
 
   def show
@@ -42,11 +42,11 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :text, :image, :value, :condition_id, :category_id, :postage_id, :prefecture_id, :shipment_day_id).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :text, :image, :value, :condition_id, :category_id, :postage_id, :prefecture_id,
+                                 :shipment_day_id).merge(user_id: current_user.id)
   end
 
   def selectitem
     @item = Item.find(params[:id])
   end
 end
-
