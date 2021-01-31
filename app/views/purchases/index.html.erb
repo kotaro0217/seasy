@@ -1,4 +1,3 @@
-
 <%= render "shared/second-header"%>
 
 <div class='transaction-contents'>
@@ -8,7 +7,7 @@
     </h1>
     <%# 購入内容の表示 %>
     <div class='buy-item-info'>
-      <%= image_tag "item-sample.png", class: 'buy-item-img' %>
+      <%= image_tag @item.image, class: 'buy-item-img' %>
       <div class='buy-item-right-content'>
         <h2 class='buy-item-text'>
           <%= @item.name %>
@@ -32,9 +31,10 @@
     </div>
     <%# /支払額の表示 %>
 
- <%= form_with(model: @item_purchase, url: item_purchases_path,local: true) do |f| %>
+ <%= form_with(model: @item_purchase, url: item_purchases_path,local: true, id:"item_purchase") do |f| %>
+ 
  <%= render 'shared/error_messages', model: @item_purchase %>
-    <%# カード情報の入力  STEP2から取り組む%> 
+    <%# カード情報の入力 %> 
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
         クレジットカード情報入力
