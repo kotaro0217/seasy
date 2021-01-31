@@ -3,6 +3,7 @@ ja:
     models: #下記にモデル名
       user: #新規登録、ログイン
       item: #商品出品
+      item_purchase: #購入
     attributes: #翻訳したい内容
       user: #上のモデル名と一致させる
         name: イベント名
@@ -29,3 +30,10 @@ ja:
         postage_id: 配送料の負担
         prefecture_id: 発送元の地域
         other_than: 空欄
+
+      item_purchase: #上のモデル名と一致させる
+        postcode: 郵便番号
+        prefecture_id: 都道府県
+        city: 市町村
+        block: 番地
+        phone: 電話番号
