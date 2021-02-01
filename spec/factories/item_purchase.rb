@@ -3,7 +3,6 @@ FactoryBot.define do
     association :user
     association :item
 
-    # purchase_id
     postcode          { '000-0000' }
     prefecture_id     { 2 }
     city              { '市町村' }

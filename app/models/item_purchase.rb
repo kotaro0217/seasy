@@ -10,7 +10,7 @@ class ItemPurchase
     validates :city
     validates :block
     validates :phone, numericality: { message: '半角数字のみで入力する' }, length: { maximum: 11 }
-    validates :token, presence: true
+    validates :token
   end
 
   def save
