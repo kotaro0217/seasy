@@ -15,11 +15,8 @@ RSpec.describe ItemPurchase, type: :model do
         expect(@item_purchase).to be_valid
       end
 
-      it 'valueとtokenがあれば保存ができること' do
-        expect(@item_purchase).to be_valid
-      end
-
       it 'buildingはなくても保存ができること' do
+        @item_purchase.building = ''
         expect(@item_purchase).to be_valid
       end
     end
