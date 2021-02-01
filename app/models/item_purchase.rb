@@ -19,3 +19,4 @@ class ItemPurchase
                            phone: phone, purchase_id: purchase.id)
   end
 end
+
