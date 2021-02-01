@@ -9,7 +9,7 @@ class ItemPurchase
     validates :prefecture_id, numericality: { other_than: 1, message: 'は空欄以外を選択してください' }
     validates :city
     validates :block
-    validates :phone, length: { maximum: 11 }
+    validates :phone, numericality: { message: '半角数字のみで入力する' }, length: { maximum: 11 }
     validates :token, presence: true
   end
 
