@@ -10,13 +10,21 @@ RSpec.describe ItemPurchase, type: :model do
       sleep(1)
     end
 
+    context '商品購入できるとき' do
     it 'すべての値が正しく入力されていれば保存できること' do
       expect(@item_purchase).to be_valid
     end
+
     it 'valueとtokenがあれば保存ができること' do
       expect(@item_purchase).to be_valid
     end
 
+    it 'buildingはなくても保存ができること' do
+      expect(@item_purchase).to be_valid
+    end
+  end
+
+    context '商品購入ができない時' do
     it 'postcodeが空だと保存できないこと' do
       @item_purchase.postcode = ''
       @item_purchase.valid?
@@ -24,7 +32,7 @@ RSpec.describe ItemPurchase, type: :model do
     end
 
     it 'postcodeが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
-      @item_purchase.postcode = '/\A\d{3}[-]\d{4}\z/'
+      @item_purchase.postcode = '0000000'
       @item_purchase.valid?
       expect(@item_purchase.errors.full_messages).to include('Postcode郵便番号には半角ハイフンが必要である')
     end
@@ -53,6 +61,12 @@ RSpec.describe ItemPurchase, type: :model do
       expect(@item_purchase.errors.full_messages).to include('Phoneを入力してください')
     end
 
+    it '電話番号が英数字混合では登録できないこと' do
+      @item_purchase.phone = '0000000000a'
+      @item_purchase.valid?
+      expect(@item_purchase.errors.full_messages).to include('')
+    end
+
     it 'phoneが11桁以内であること' do
       @item_purchase.phone = '000000000000'
       @item_purchase.valid?
@@ -64,5 +78,18 @@ RSpec.describe ItemPurchase, type: :model do
       @item_purchase.valid?
       expect(@item_purchase.errors.full_messages).to include('Tokenを入力してください')
     end
+
+    it 'itme_idが空では登録できないこと' do
+      @item_purchase.item_id = nil
+      @item_purchase.valid?
+      expect(@item_purchase.errors.full_messages).to include('Itemを入力してください')
+    end
+
+    it 'user_idが空では登録できないこと' do
+      @item_purchase.user_id = nil
+      @item_purchase.valid?
+      expect(@item_purchase.errors.full_messages).to include('Userを入力してください')
+    end
   end
+end
 end
