@@ -10,8 +10,8 @@ class PurchasesController < ApplicationController
   def create
     @item_purchase = ItemPurchase.new(purchase_params)
     if @item_purchase.valid?
-      @item_purchase.save
       pay_item
+      @item_purchase.save
       redirect_to root_path
     else
       render action: :index
