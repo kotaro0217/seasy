@@ -64,7 +64,7 @@ RSpec.describe ItemPurchase, type: :model do
     it '電話番号が英数字混合では登録できないこと' do
       @item_purchase.phone = '0000000000a'
       @item_purchase.valid?
-      expect(@item_purchase.errors.full_messages).to include('')
+      expect(@item_purchase.errors.full_messages).to include('Phone半角数字のみで入力する')
     end
 
     it 'phoneが11桁以内であること' do
