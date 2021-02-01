@@ -4,8 +4,8 @@ class PurchasesController < ApplicationController
   def index
     @item = Item.find(params[:item_id])
     @item_purchase = ItemPurchase.new
-    redirect_to root_path if current_user.id == @item.user_id || @item.purchase != nil 
-    end
+    redirect_to root_path if current_user.id == @item.user_id || @item.purchase != nil
+  end
 
   def create
     @item = Item.find(params[:item_id])
@@ -34,6 +34,6 @@ class PurchasesController < ApplicationController
       amount: @item[:value],
       card: purchase_params[:token],
       currency: 'jpy'
-      )
-end
+    )
+  end
 end
