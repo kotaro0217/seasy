@@ -49,15 +49,15 @@
 
 ##  shipping_addressテーブル
 
-| Column   | Type      | Options                        |
-| -------- | --------- | ------------------------------ |
-| purchase | reference | null: false, foreign_key: true |
-| postcode | string    | null: false                    |
-| area_id  | integer   | null: false                    |
-| city     | string    | null: false                    |
-| block    | string    | null: false                    |
-| building | string    |                                |
-| phone    | string    | null: false                    |
+| Column        | Type      | Options                        |
+| ------------- | --------- | ------------------------------ |
+| purchase      | reference | null: false, foreign_key: true |
+| postcode      | string    | null: false                    |
+| prefecture_id | integer   | null: false                    |
+| city          | string    | null: false                    |
+| block         | string    | null: false                    |
+| building      | string    |                                |
+| phone         | string    | null: false                    |
 
 ### association
 - belongs_to :purchase
