@@ -5,11 +5,11 @@ class ItemPurchase
   with_options presence: true do
     validates :user_id
     validates :item_id
-    validates :postcode, format: { with: /\A\d{3}-\d{4}\z/, message: '郵便番号には半角ハイフンが必要である' }
+    validates :postcode, format: { with: /\A\d{3}-\d{4}\z/, message: 'には半角ハイフンが必要である' }
     validates :prefecture_id, numericality: { other_than: 1, message: 'は空欄以外を選択してください' }
     validates :city
     validates :block
-    validates :phone, numericality: { message: '半角数字のみで入力する' }, length: { maximum: 11 }
+    validates :phone, numericality: { message: 'は半角数字のみで入力する' }, length: { maximum: 11 }
     validates :token
   end
 
